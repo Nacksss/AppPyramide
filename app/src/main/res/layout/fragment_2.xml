@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Fragment2">
+
+
+    <Button
+        android:id="@+id/plusbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="92dp"
+        android:layout_marginBottom="205dp"
+        android:baselineAligned="false"
+        android:text="+"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/valCount"
+        android:layout_width="140dp"
+        android:layout_height="78dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="251dp"
+        android:layout_marginEnd="121dp"
+        android:textAlignment="center"
+        android:hint="Nombre de joueur"
+        android:textColor="@color/black"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/nombre_joueurs_fragment_text"
+        android:layout_width="wrap_content"
+        android:layout_height="42dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="174dp"
+        android:layout_marginEnd="17dp"
+        android:text='Combien de Joueurs ?'
+        android:textColor="@color/black"
+        android:textSize="35sp" />
+
+    <Button
+        android:id="@+id/moinsbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="217dp"
+        android:layout_marginBottom="205dp"
+        android:text="-"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/nombre_joueurs_fragment_button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="121dp"
+        android:text="Ok"
+        android:textSize="20sp" />
+
+</RelativeLayout>
