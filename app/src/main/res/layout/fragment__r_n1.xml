@@ -29,6 +29,8 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="99dp"
         android:layout_marginEnd="88dp"
+        android:rotation="-33"
+        android:rotationY="21"
         android:text="C'EST PARTIIII !"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textColor="#F40606" />

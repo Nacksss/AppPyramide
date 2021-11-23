@@ -1,7 +1,6 @@
 package com.example.apppyramide;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -32,6 +31,7 @@ public class Activity2 extends AppCompatActivity{
     ArrayAdapter<String> adapter;
 
 
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,11 +43,11 @@ public class Activity2 extends AppCompatActivity{
         list = (ListView)findViewById(R.id.list);
         utilisateur = (EditText)findViewById(R.id.utilisateur);
 
+
         arrayList = new ArrayList<String>();
         adapter = new ArrayAdapter<String>(Activity2.this,
                 android.R.layout.simple_expandable_list_item_1,arrayList);
         list.setAdapter(adapter);
-
         //fin initialisation
 
 
@@ -57,17 +57,25 @@ public class Activity2 extends AppCompatActivity{
             public void onClick(View view) {
                 if(utilisateur.getText().toString().equals("")){
                     Toast.makeText(getApplicationContext(), "Il faut rentrer un nom de joueur !", Toast.LENGTH_SHORT).show();
-                }else {
+                }/* faire une condition pour qu'il ne puisse pas rentrer un nom déja selectionné
+                else if (){
+
+                }*/
+                else{
                         //on récup le nom entré par le joueur
                         String nom = utilisateur.getText().toString();
 
                         arrayList.add("Nom joueur : " + nom);
                         adapter.notifyDataSetChanged();
+                        utilisateur.setText(""); //pr clear le TextView
+
 
                         //on l'affiche dans la list
                         //utilisateur.setText("Nom joueur : "+nom);
                    }
+
                 }
+
             });
 
 
@@ -81,36 +89,30 @@ public class Activity2 extends AppCompatActivity{
             }
         });
 
+        //afficher les différents btn en fct du nombre de joueur
+/*
+        //recoit la variable entière count du Fragment2
+        Intent intentVal = getIntent();
+        int valeur = intentVal.getIntExtra("val", R.id.valCount);
+
+        //rendre visible/insible les btns de cette activity en fct si oui ou non, le bon nombre de
+        //nom de joueur a été rentré par rapport au nombre de joueur selectionné dans le Fragment2
+        //grace à la variable count
+        int i= 0;
+        while ( i <valeur){
+            btnAdd.setVisibility(View.VISIBLE);
+            debutJeu.setVisibility(View.INVISIBLE);
+            i++;
+        }
+        btnAdd.setVisibility(View.VISIBLE);
+        debutJeu.setVisibility(View.INVISIBLE);
+
+*/
 
     }
 }
 
 
-
-
-
-///chercher comment transmettre la variables d'unfragment a une activité
-        /*
-        //afficher les différents btn en fct du nombre de joueur
-        int i=0;
-        while ( i<count){
-            btnAdd.setVisibility(View.VISIBLE);
-            debutJeu.setVisibility(View.INVISIBLE);
-            i++;
-        }
-            btnAdd.setVisibility(View.VISIBLE);
-            debutJeu.setVisibility(View.INVISIBLE);
-
-
-        int i=0;
-        for ( i; i<count; i++){
-            btnAdd.setVisibility(View.VISIBLE);
-            debutjeu.setVisibility(View.INVISIBLE);
-        }else {
-            btnAdd.setVisibility(View.VISIBLE);
-            debutjeu.setVisibility(View.INVISIBLE);
-        }
-        */
 
 
 /*   /////////////Plus d'actualité

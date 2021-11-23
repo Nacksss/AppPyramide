@@ -11,7 +11,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-
 public class Fragment2 extends Fragment {
 
     //variables
@@ -79,6 +78,9 @@ public class Fragment2 extends Fragment {
             }
         });
 
+    //envoie la variable count a Activity2
+    Intent intentVal = new Intent(getActivity(), Activity2.class);
+    intentVal.putExtra("count", count);
 
         return view;
     }
