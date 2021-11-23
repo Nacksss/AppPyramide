@@ -28,8 +28,8 @@
         android:layout_alignParentEnd="true"
         android:layout_marginTop="251dp"
         android:layout_marginEnd="121dp"
-        android:textAlignment="center"
         android:hint="Nombre de joueur"
+        android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="30sp" />
 

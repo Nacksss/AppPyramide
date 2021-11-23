@@ -3,18 +3,16 @@ package com.example.apppyramide;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 import java.util.ArrayList;
 
-public class Activity2 extends AppCompatActivity {
+public class Activity2 extends AppCompatActivity{
 
     /* ////pluq utiles
     ListView lv;
@@ -53,28 +51,65 @@ public class Activity2 extends AppCompatActivity {
 
 
         //Fonction du click sur ajouter joueur
-            btnAdd.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    //on récup le nom entré par le joueur
-                    String nom = utilisateur.getText().toString();
+        btnAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(utilisateur.getText().toString().equals("")){
+                    Toast.makeText(getApplicationContext(), "Il faut rentrer un nom de joueur !", Toast.LENGTH_SHORT).show();
+                }else {
+                        //on récup le nom entré par le joueur
+                        String nom = utilisateur.getText().toString();
 
-                    arrayList.add("Nom joueur :" + nom);
-                    adapter.notifyDataSetChanged();
+                        arrayList.add("Nom joueur : " + nom);
+                        adapter.notifyDataSetChanged();
 
-                    //on l'affiche dans la list
-                    //utilisateur.setText("Nom joueur : "+nom);
+                        //on l'affiche dans la list
+                        //utilisateur.setText("Nom joueur : "+nom);
+                   }
                 }
             });
 
 
+            //Fct du btn lancer partie
+            //ouvrir une activité d'une activité
+        debutJeu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Activity2.this, activity_RN.class);
+                startActivity(intent);
+            }
+        });
+
+
+    }
+}
+
+
+
+
+
+///chercher comment transmettre la variables d'unfragment a une activité
+        /*
         //afficher les différents btn en fct du nombre de joueur
         int i=0;
-        while ( i != count){
+        while ( i<count){
             btnAdd.setVisibility(View.VISIBLE);
-            btnAdd.setVisibility(View.INVISIBLE);
+            debutJeu.setVisibility(View.INVISIBLE);
+            i++;
         }
+            btnAdd.setVisibility(View.VISIBLE);
+            debutJeu.setVisibility(View.INVISIBLE);
 
+
+        int i=0;
+        for ( i; i<count; i++){
+            btnAdd.setVisibility(View.VISIBLE);
+            debutjeu.setVisibility(View.INVISIBLE);
+        }else {
+            btnAdd.setVisibility(View.VISIBLE);
+            debutjeu.setVisibility(View.INVISIBLE);
+        }
+        */
 
 
 /*   /////////////Plus d'actualité
@@ -116,11 +151,6 @@ public class Activity2 extends AppCompatActivity {
             intent.putEtra(Activity2.MSG_Utilisateur, users[position]);
         */
 
-    }
-
-
-
-
 
 /*  /////////////Plus d'actualité
     public void sendCreated(View view){
@@ -147,6 +177,3 @@ public class Activity2 extends AppCompatActivity {
         }
     }
 */
-
-
-}

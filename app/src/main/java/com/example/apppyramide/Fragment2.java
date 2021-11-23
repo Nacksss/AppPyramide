@@ -40,7 +40,7 @@ public class Fragment2 extends Fragment {
                 else {
                     //pour ouvrir une activité
                     Intent in = new Intent(getActivity(), Activity2.class);
-                    in.putExtra("somme", "some data");
+                    //in.putExtra("somme", "some data");
                     startActivity(in);
 
                     //pour ouvrir un fragment

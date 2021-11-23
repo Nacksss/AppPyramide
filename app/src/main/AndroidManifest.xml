@@ -11,6 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppPyramide">
         <activity
+            android:name=".activity_RN"
+            android:exported="true" />
+        <activity
             android:name=".Activity2"
             android:exported="true" />
         <activity
