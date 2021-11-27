@@ -14,7 +14,7 @@ import android.widget.Toast;
 public class Fragment2 extends Fragment {
 
     //variables
-    public int count = 0;
+    public int count;
     TextView valCount;
     Button ButtonOK, ButtonPlus, ButtonMoins;
 
@@ -29,36 +29,19 @@ public class Fragment2 extends Fragment {
         ButtonMoins= (Button)view.findViewById(R.id.moinsbutton);
         valCount = (TextView)view.findViewById(R.id.valCount);
 
-        //Fonction du click sur Ok
-        ButtonOK.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(count == 0){
-                    Toast.makeText(getContext(), "Il ne peut pas y avoir 0 joueur", Toast.LENGTH_SHORT).show();
-                }
-                else {
-                    //pour ouvrir une activité
-                    Intent in = new Intent(getActivity(), Activity2.class);
-                    //in.putExtra("somme", "some data");
-                    startActivity(in);
-
-                    //pour ouvrir un fragment
-                    /*FragmentTransaction fr = getFragmentManager().beginTransaction();
-                    fr.replace(R.id.fragment_container, new Fragment3());
-                    fr.commit();*/
-                }
-            }
-        });
-
-
-
         //Fonction du click sur +
         ButtonPlus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                count ++;
-                String nbDeJoueurs = "" + count;
-                valCount.setText(nbDeJoueurs);
+                if(count == 6){
+                    count = 6;
+                }
+                else{
+                    count ++;
+                    String nbDeJoueurs = "" + count;
+                    valCount.setText(nbDeJoueurs);
+                }
+
             }
         });
 
@@ -78,9 +61,38 @@ public class Fragment2 extends Fragment {
             }
         });
 
-    //envoie la variable count a Activity2
-    Intent intentVal = new Intent(getActivity(), Activity2.class);
-    intentVal.putExtra("count", count);
+        //Fonction du click sur Ok
+        ButtonOK.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(count == 0){
+                    Toast.makeText(getContext(), "Il ne peut pas y avoir 0 joueur", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    //pour ouvrir une activité
+                    Intent in = new Intent(getActivity(), Activity2.class);
+                    in.putExtra("count ", count);
+                    //in.putExtra("some", "some thoog");
+                    startActivity(in);
+                    Toast.makeText(getContext(), ""+ count, Toast.LENGTH_SHORT).show();
+
+                    //pour ouvrir un fragment
+                    /*FragmentTransaction fr = getFragmentManager().beginTransaction();
+                    fr.replace(R.id.fragment_container, new Fragment3());
+                    fr.commit();*/
+                }
+            }
+        });
+
+
+
+
+        //envoie la variable count a Activity2
+        //Intent intentVal = new Intent(getActivity(), Activity2.class);
+        //intentVal.putExtra("count", count);
+        //startActivity(intentVal);
+
+
 
         return view;
     }

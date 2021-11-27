@@ -12,7 +12,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 
-public class Activity2 extends AppCompatActivity{
+public class Activity2 extends AppCompatActivity  {
 
     /* ////pluq utiles
     ListView lv;
@@ -38,93 +38,95 @@ public class Activity2 extends AppCompatActivity{
         setContentView(R.layout.activity_2);
 
         //Initialisation des variables
-        btnAdd = (Button)findViewById(R.id.btnAdd);
-        debutJeu = (Button)findViewById(R.id.debutJeu);
-        list = (ListView)findViewById(R.id.list);
-        utilisateur = (EditText)findViewById(R.id.utilisateur);
+        btnAdd = (Button) findViewById(R.id.btnAdd);
+        debutJeu = (Button) findViewById(R.id.debutJeu);
+        list = (ListView) findViewById(R.id.list);
+        utilisateur = (EditText) findViewById(R.id.utilisateur);
 
 
         arrayList = new ArrayList<String>();
         adapter = new ArrayAdapter<String>(Activity2.this,
-                android.R.layout.simple_expandable_list_item_1,arrayList);
+                android.R.layout.simple_expandable_list_item_1, arrayList);
         list.setAdapter(adapter);
         //fin initialisation
+
+        //afficher les différents btn en fct du nombre de joueur
+        //recoit la variable entière count du Fragment2
+        Bundle bundle = getIntent().getExtras();
+        /*if(bundle != null){
+            /*if(bundle.getString("some") != null){
+                Toast.makeText(getApplicationContext(), "data : " + bundle.getString("some"),
+                        Toast.LENGTH_SHORT).show();
+            }
+            if(bundle.getInt("count") == 0){
+                Toast.makeText(getApplicationContext(), "nb : " + bundle.getInt("count"),
+                        Toast.LENGTH_SHORT).show();
+            }
+        }*/
+
+        //Intent in1 = getIntent();
+        //int valeur = in1.getIntExtra("count", 0);
+
+        int val = bundle.getInt("count");
+        Toast.makeText(getApplicationContext(), "val = "+ val, Toast.LENGTH_SHORT).show();
+        while ( (arrayList.size()+1) < val) {
+            debutJeu.setVisibility(View.INVISIBLE);
+        }
 
 
         //Fonction du click sur ajouter joueur
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(utilisateur.getText().toString().equals("")){
+                if (utilisateur.getText().toString().equals("")) {
                     Toast.makeText(getApplicationContext(), "Il faut rentrer un nom de joueur !", Toast.LENGTH_SHORT).show();
                 }/* faire une condition pour qu'il ne puisse pas rentrer un nom déja selectionné
                 else if (){
 
-                }*/
-                else{
-                        //on récup le nom entré par le joueur
-                        String nom = utilisateur.getText().toString();
+                }*/ else {
+                    //on récup le nom entré par le joueur
+                    String nom = utilisateur.getText().toString();
 
-                        arrayList.add("Nom joueur : " + nom);
-                        adapter.notifyDataSetChanged();
-                        utilisateur.setText(""); //pr clear le TextView
-
-
-                        //on l'affiche dans la list
-                        //utilisateur.setText("Nom joueur : "+nom);
-                   }
-
+                    arrayList.add("Nom joueur "+ (arrayList.size()+1) +" : " + nom + val);
+                    adapter.notifyDataSetChanged();
+                    utilisateur.setText(""); //pr clear le TextView
                 }
 
-            });
+            }
+
+        });
 
 
-            //Fct du btn lancer partie
-            //ouvrir une activité d'une activité
+        //Fct du btn lancer partie
+        //ouvrir une activité d'une activité
         debutJeu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Activity2.this, activity_RN.class);
-                startActivity(intent);
+                if (arrayList.isEmpty()) {
+                    Toast.makeText(getApplicationContext(), "Vous ne pouvez pas lancer la partie sans rentrer le nom des participants", Toast.LENGTH_SHORT).show();
+                } else {
+                    Intent intent = new Intent(Activity2.this, activity_RN.class);
+                    startActivity(intent);
+                }
             }
         });
 
-        //afficher les différents btn en fct du nombre de joueur
-/*
-        //recoit la variable entière count du Fragment2
-        Intent intentVal = getIntent();
-        int valeur = intentVal.getIntExtra("val", R.id.valCount);
 
+        /*
         //rendre visible/insible les btns de cette activity en fct si oui ou non, le bon nombre de
         //nom de joueur a été rentré par rapport au nombre de joueur selectionné dans le Fragment2
         //grace à la variable count
-        int i= 0;
-        while ( i <valeur){
-            btnAdd.setVisibility(View.VISIBLE);
-            debutJeu.setVisibility(View.INVISIBLE);
-            i++;
-        }
-        btnAdd.setVisibility(View.VISIBLE);
-        debutJeu.setVisibility(View.INVISIBLE);
-
-*/
-
+        //arrayList.size()
+        */
     }
 }
 
 
 
 
-/*   /////////////Plus d'actualité
-        //ouverture de cette activity avec le bouton ok de frag 2
-        Bundle bundle = getIntent().getExtras();
-        if(bundle!=null){
-            if(bundle.getString("sommee") !=null){
-                Toast.makeText(getApplicationContext(), "data"+ bundle.getString("sommee"),
-                        Toast.LENGTH_SHORT).show();
-            }
-        }
-*/
+
+
+
 
         /*   /////////////Plus d'actualité
         //on ouvre la base de données

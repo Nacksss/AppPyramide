@@ -8,7 +8,7 @@
     tools:context=".Fragment_RN2">
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/buttonR"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
@@ -21,7 +21,7 @@
         app:iconTint="#E60808" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/buttonN"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
@@ -41,8 +41,8 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="106dp"
-        android:layout_marginTop="96dp"
+        android:layout_marginStart="94dp"
+        android:layout_marginTop="135dp"
         android:rotationX="21"
         android:text="Rouge ou Noir ?"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
@@ -51,14 +51,20 @@
 
     <View
         android:id="@+id/view"
-        android:layout_width="324dp"
-        android:layout_height="178dp"
+        android:layout_width="232dp"
+        android:layout_height="122dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_centerInParent="true"
-        android:layout_marginTop="239dp"
-        android:layout_marginEnd="44dp"
+        android:layout_marginTop="258dp"
+        android:layout_marginEnd="86dp"
         android:background="#DA1717" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="" />
 
 
 </RelativeLayout>
