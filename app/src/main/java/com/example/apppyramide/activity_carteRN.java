@@ -36,7 +36,7 @@ public class activity_carteRN extends AppCompatActivity {
                 fragmentTransaction.replace(fragment_containerRN, new Fragment_RN());
                 fragmentTransaction.commit();
             }
-        },5000);
+        },2000);
 
 
     }

@@ -34,9 +34,9 @@ public class Fragment_RN extends Fragment {
                 Bundle bundle = new Bundle();
                 bundle.putInt("choix", choixCouleur);
 
-                Fragment_afficheCarte fr = new Fragment_afficheCarte();
-                fr.setArguments(bundle);
-                getFragmentManager().beginTransaction().replace(R.id.fragment_containerRN, fr).commit();
+                Fragment_afficheCarte frag = new Fragment_afficheCarte();
+                frag.setArguments(bundle);
+                getFragmentManager().beginTransaction().replace(R.id.fragment_containerRN, frag).commit();
 
             }
         });
@@ -49,9 +49,9 @@ public class Fragment_RN extends Fragment {
                 Bundle bundle = new Bundle();
                 bundle.putInt("choix", choixCouleur);
 
-                Fragment_afficheCarte fr = new Fragment_afficheCarte();
-                fr.setArguments(bundle);
-                getFragmentManager().beginTransaction().replace(R.id.fragment_containerRN, fr).commit();
+                Fragment_afficheCarte fr1 = new Fragment_afficheCarte();
+                fr1.setArguments(bundle);
+                getFragmentManager().beginTransaction().replace(R.id.fragment_containerRN, fr1).commit();
             }
         });
 
