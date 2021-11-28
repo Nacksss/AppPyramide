@@ -11,10 +11,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppPyramide">
         <activity
-            android:name=".activity_RN"
+            android:name=".activity_carteRN"
             android:exported="true" />
         <activity
-            android:name=".Activity2"
+            android:name=".ActivityNomJoeurs"
             android:exported="true" />
         <activity
             android:name=".MainActivity"

@@ -11,7 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-public class Fragment2 extends Fragment {
+public class Fragment_CbDeJoueurs extends Fragment {
 
     //variables
     public int count;
@@ -21,7 +21,7 @@ public class Fragment2 extends Fragment {
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_2, container, false);
+        View view = inflater.inflate(R.layout.fragment_cbjoueurs, container, false);
 
         //Initialisation des variables
         ButtonOK = (Button)view.findViewById(R.id.nombre_joueurs_fragment_button3);
@@ -29,7 +29,7 @@ public class Fragment2 extends Fragment {
         ButtonMoins= (Button)view.findViewById(R.id.moinsbutton);
         valCount = (TextView)view.findViewById(R.id.valCount);
 
-        //Fonction du click sur +
+        // fonction du click sur +
         ButtonPlus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -45,11 +45,11 @@ public class Fragment2 extends Fragment {
             }
         });
 
-        //Fonction du click sur -
+        // Fonction du click sur -
         ButtonMoins.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //pour ne pas aller dans les négatifs
+                //pour ne pas aller dans les negatifs
                 if(count == 0){
                     count = 0;
                 }
@@ -69,30 +69,19 @@ public class Fragment2 extends Fragment {
                     Toast.makeText(getContext(), "Il ne peut pas y avoir 0 joueur", Toast.LENGTH_SHORT).show();
                 }
                 else {
-                    //pour ouvrir une activité
-                    Intent in = new Intent(getActivity(), Activity2.class);
-                    in.putExtra("count ", count);
-                    //in.putExtra("some", "some thoog");
-                    startActivity(in);
-                    Toast.makeText(getContext(), ""+ count, Toast.LENGTH_SHORT).show();
+                    count = count;
 
-                    //pour ouvrir un fragment
-                    /*FragmentTransaction fr = getFragmentManager().beginTransaction();
-                    fr.replace(R.id.fragment_container, new Fragment3());
-                    fr.commit();*/
+                    //pour ouvrir une activité et transmettre une val
+                    Bundle bundle = new Bundle();
+                    bundle.getInt("count", count);
+
+                    Intent in = new Intent(getActivity(), ActivityNomJoeurs.class);
+                    in.putExtra("count",count);
+                    startActivity(in);
+                    //Toast.makeText(getContext(), ""+ count, Toast.LENGTH_SHORT).show();
                 }
             }
         });
-
-
-
-
-        //envoie la variable count a Activity2
-        //Intent intentVal = new Intent(getActivity(), Activity2.class);
-        //intentVal.putExtra("count", count);
-        //startActivity(intentVal);
-
-
 
         return view;
     }

@@ -4,8 +4,10 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/nicod/AppPyramide/app/src/main/res/layout/activity_2.xml" value="0.1" />
+        <entry key="..\:/Users/nicod/AppPyramide/app/src/main/res/layout/activity_cartern.xml" value="0.125" />
         <entry key="..\:/Users/nicod/AppPyramide/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Users/nicod/AppPyramide/app/src/main/res/layout/activity_main1.xml" value="0.2" />
+        <entry key="..\:/Users/nicod/AppPyramide/app/src/main/res/layout/activity_nomjoueurs.xml" value="0.125" />
         <entry key="..\:/Users/nicod/AppPyramide/app/src/main/res/layout/activity_rn.xml" value="0.2" />
         <entry key="..\:/Users/nicod/AppPyramide/app/src/main/res/layout/fragment_1.xml" value="0.1" />
         <entry key="..\:/Users/nicod/AppPyramide/app/src/main/res/layout/fragment_2.xml" value="0.1" />
@@ -13,8 +15,15 @@
         <entry key="..\:/Users/nicod/AppPyramide/app/src/main/res/layout/fragment__debut__rou_n.xml" value="0.1" />
         <entry key="..\:/Users/nicod/AppPyramide/app/src/main/res/layout/fragment__r_n1.xml" value="0.1" />
         <entry key="..\:/Users/nicod/AppPyramide/app/src/main/res/layout/fragment__r_n2.xml" value="0.1" />
+        <entry key="..\:/Users/nicod/AppPyramide/app/src/main/res/layout/fragment_accueil.xml" value="0.129981884057971" />
         <entry key="..\:/Users/nicod/AppPyramide/app/src/main/res/layout/fragment_affiche_carte.xml" value="0.15760869565217392" />
+        <entry key="..\:/Users/nicod/AppPyramide/app/src/main/res/layout/fragment_cbDeJ.xml" value="0.15489130434782608" />
+        <entry key="..\:/Users/nicod/AppPyramide/app/src/main/res/layout/fragment_cbjoueurs.xml" value="0.1" />
+        <entry key="..\:/Users/nicod/AppPyramide/app/src/main/res/layout/fragment_rn.xml" value="0.1" />
+        <entry key="..\:/Users/nicod/AppPyramide/app/src/main/res/layout/fragment_tempo.xml" value="0.125" />
         <entry key="..\:/Users/nicod/AppPyramide/app/src/main/res/layout/liste.xml" value="0.22" />
+        <entry key="..\:/Users/nicod/AppPyramide/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.21614583333333334" />
+        <entry key="..\:/Users/nicod/AppPyramide/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.21614583333333334" />
       </map>
     </option>
   </component>

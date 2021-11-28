@@ -11,9 +11,13 @@ import android.widget.Toast;
 
 
 public class Fragment_afficheCarte extends Fragment {
+
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_affiche_carte, container, false);
+
+        Bundle bundle = this.getArguments();
+        int choixCouleur = bundle.getInt("choix");
 
         //affichage aléatoire de la carte
 
@@ -27,6 +31,8 @@ public class Fragment_afficheCarte extends Fragment {
             Toast.makeText(getContext(), "Ratté, tu bois une gorgées", Toast.LENGTH_SHORT).show();
         }
          */
+
+        Toast.makeText(getContext(), "choix"+ choixCouleur, Toast.LENGTH_SHORT).show();
 
         //rentré la carte obtenue par le joueur ds la database et la retirer du paquet
 

@@ -14,9 +14,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        //ouverture du fragment 1 dès l'ouverture de l'application
+        //ouverture du fragment 1 dès l'ouverture de l application
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.add(R.id.fragment_container, new Fragment1());
+        fragmentTransaction.add(R.id.fragment_container, new Fragment_Accueil());
         fragmentTransaction.commit();
 
     }

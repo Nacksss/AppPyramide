@@ -8,11 +8,10 @@ import android.view.ViewGroup;
 
 
 
-public class Fragment_RN1 extends Fragment {
+public class Fragment_tempoRN extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment__r_n1, container, false);
-
+        View view = inflater.inflate(R.layout.fragment_tempo, container, false);
 
         return view;
     }

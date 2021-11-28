@@ -10,28 +10,34 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class Fragment_RN2 extends Fragment {
+public class Fragment_RN extends Fragment {
 
     public int choixCouleur; // 0 pr noir, 1 pr rouge
     TextView tv;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment__r_n2, container, false);
+        View view = inflater.inflate(R.layout.fragment_rn, container, false);
 
-        tv = (TextView) view.findViewById(R.id.textView3);
+        tv = (TextView) view.findViewById(R.id.nomjoueur);
         //pr afficher le nom du joueur correspondant
-        //tv.setText(arrayList(i));
+        //tv.setText("Joueur n° " + arraylist.size() + " : " + arrayList(i));
+
+
 
 
         Button btnRouge = (Button) view.findViewById(R.id.buttonR);
         btnRouge.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FragmentTransaction fr = getFragmentManager().beginTransaction();
-                fr.replace(R.id.fragment_containerRN, new Fragment_afficheCarte());
-                fr.commit();
                 choixCouleur = 1;
+                Bundle bundle = new Bundle();
+                bundle.putInt("choix", choixCouleur);
+
+                Fragment_afficheCarte fr = new Fragment_afficheCarte();
+                fr.setArguments(bundle);
+                getFragmentManager().beginTransaction().replace(R.id.fragment_containerRN, fr).commit();
+
             }
         });
 
@@ -39,10 +45,13 @@ public class Fragment_RN2 extends Fragment {
         btnNoir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FragmentTransaction fr = getFragmentManager().beginTransaction();
-                fr.replace(R.id.fragment_containerRN, new Fragment_afficheCarte());
-                fr.commit();
                 choixCouleur = 0;
+                Bundle bundle = new Bundle();
+                bundle.putInt("choix", choixCouleur);
+
+                Fragment_afficheCarte fr = new Fragment_afficheCarte();
+                fr.setArguments(bundle);
+                getFragmentManager().beginTransaction().replace(R.id.fragment_containerRN, fr).commit();
             }
         });
 
