@@ -3,6 +3,7 @@ package com.example.apppyramide;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -127,7 +128,15 @@ public class Fragment_afficheCarte extends Fragment {
         JoueurSuivant.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                //if (il reste des joueurs )
+                    FragmentTransaction fr = getFragmentManager().beginTransaction();
+                    fr.replace(R.id.fragment_containerRN, new Fragment_RN());
+                    fr.commit();
+                //else{
+                    //FragmentTransaction fr1 = getFragmentManager().beginTransaction();
+                    //fr1.replace(R.id.fragment_containerRN, new Fragment_PlusOuMoins());
+                    //fr1.commit();
+                //}
             }
         });
 

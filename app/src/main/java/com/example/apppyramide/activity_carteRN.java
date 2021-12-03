@@ -4,9 +4,11 @@ import static com.example.apppyramide.R.id.fragment_containerRN;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -22,6 +24,10 @@ public class activity_carteRN extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cartern);
 
+        //recoit l'arraylist des noms des joeurs de l'activité Nom joueurs
+        ArrayList<String> s1 = getIntent().getStringArrayListExtra("listNom");
+        Toast.makeText(getApplicationContext(), "list + "+ s1, Toast.LENGTH_SHORT).show();
+
 
         //ouverture du 1fragment Rouge ou Noir dès l'ouverture de cette activité( avec le btn lancer partie)
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
@@ -32,8 +38,14 @@ public class activity_carteRN extends AppCompatActivity {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
+                Fragment_RN fragment_rn = new Fragment_RN();
                 FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                fragmentTransaction.replace(fragment_containerRN, new Fragment_RN());
+
+                //envoyer l'arraylist au fragment RN
+                Bundle bundleNom = new Bundle();
+                bundleNom.putStringArrayList("listNom", s1);
+                fragment_rn.setArguments(bundleNom);
+                fragmentTransaction.replace(fragment_containerRN, fragment_rn);
                 fragmentTransaction.commit();
             }
         },2000);

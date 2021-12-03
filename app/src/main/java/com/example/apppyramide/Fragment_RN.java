@@ -10,19 +10,31 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 public class Fragment_RN extends Fragment {
 
     public int choixCouleur; // 0 pr noir, 1 pr rouge
     TextView tv;
+    private ArrayList<String> s1;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_rn, container, false);
 
+        //recoit l'arraylist des noms des joeurs de l'activité carte RN
         tv = (TextView) view.findViewById(R.id.nomjoueur);
-        //pr afficher le nom du joueur correspondant
-        //tv.setText("Joueur n° " + arraylist.size() + " : " + arrayList(i));
 
+        Bundle bundleNom = getArguments();
+        s1 = bundleNom.getStringArrayList("listNom");
+        for(int i = 0; i< s1.size(); i++){
+            tv.setText("" + s1.get(i));
+        }
+
+
+        //pr afficher le nom du joueur correspondant
+        //tv.setText("" + bundleNom);
+        //tv.setText("Joueur n° " + s1.size() + " : " + s1[i]);
 
 
 

@@ -17,14 +17,6 @@ import java.util.List;
 
 public class ActivityNomJoeurs extends AppCompatActivity {
 
-    /* plus utile
-    ListView lv;
-    private String nombreDeParticipants ="";
-    private String[] users;
-    AdapterList adapterList;
-    public static final String MSG_Utilisateur ="";
-     */
-
     //Variable
     ListView list;
     Button btnAdd;
@@ -72,7 +64,7 @@ public class ActivityNomJoeurs extends AppCompatActivity {
                 }*/ else {
                     //on recupere le nom entré par le joueur
                     String nom = utilisateur.getText().toString();
-                    arrayList.add("Nom joueur " + (arrayList.size() + 1) + " : " + nom);
+                    arrayList.add("Joueur " + (arrayList.size() + 1) + " : " + nom);
                     adapter.notifyDataSetChanged();
                     utilisateur.setText(""); //pr clear le TextView
 
@@ -97,13 +89,14 @@ public class ActivityNomJoeurs extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Vous ne pouvez pas lancer la partie sans rentrer le nom des participants", Toast.LENGTH_SHORT).show();
                 } else {
                     //transmettre la liste de l'activité à un fragment
-                    //regarder cmt faire
-                    //Bundle bundle1 = new Bundle();
-                   // bundle1.get("list",arrayList ) ;
+                    Bundle bundle1 = new Bundle();
+                    bundle1.getStringArrayList("list") ;
+                    ArrayList<String> s = arrayList;
+
                     Intent intent = new Intent(ActivityNomJoeurs.this, activity_carteRN.class);
-                    //intent.putExtra("list", arrayList);
-                    //intent.putParcelableArrayListExtra("listNom", ArrayList<? extends Parcelable > arrayList);
+                    intent.putExtra("listNom", s);;
                     startActivity(intent);
+
                 }
             }
         });
