@@ -44,7 +44,7 @@ public class ActivityNomJoeurs extends AppCompatActivity {
         list.setAdapter(adapter);
         //fin initialisation
 
-        //recoit la variable entiere count du Fragment2
+        //recoit la variable entiere count du Fragment_CbDeJoueurs
         Bundle bundle = getIntent().getExtras();
         int val = bundle.getInt("count");
 

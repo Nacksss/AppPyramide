@@ -29,6 +29,7 @@ public class Fragment_RN extends Fragment {
         s1 = bundleNom.getStringArrayList("listNom");
         for(int i = 0; i< s1.size(); i++){
             tv.setText("" + s1.get(i));
+
         }
 
 
@@ -66,6 +67,8 @@ public class Fragment_RN extends Fragment {
                 getFragmentManager().beginTransaction().replace(R.id.fragment_containerRN, fr1).commit();
             }
         });
+
+
 
         return view;
 

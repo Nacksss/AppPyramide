@@ -32,16 +32,20 @@ public class Fragment_afficheCarte extends Fragment {
         int choixCouleur = bundle.getInt("choix");
 
         //affichage aléatoire de la carte
+        //Random r = new Random();
+        //int n = r.nextInt(13);
+        //Random r1 = new Random();
+        //int type = r1.nextInt(4);
+
+        //affichage aléatoire carte avec Hashmap
         Random r = new Random();
-        int n = r.nextInt(13);
-        Random r1 = new Random();
-        int type = r1.nextInt(4);
+        int n = r.nextInt(52);
 
         CarteObtenue = (TextView) view.findViewById(R.id.carte_Tiré) ;
         resultat = (TextView) view.findViewById(R.id.resultat) ;
         JoueurSuivant = (Button) view.findViewById(R.id.joueursuivant);
 
-        //on définie le num de la carte
+        /* on définie le num de la carte
         if(n == 1) {
             valeurCarte ="As";
         }
@@ -81,9 +85,11 @@ public class Fragment_afficheCarte extends Fragment {
         else if(n == 13) {
             valeurCarte ="K";
         }
+        */
+
 
         //On définie le type de la carte
-        if(type == 1) {
+        /*if(type == 1) {
             Type ="Coeur";
         }
         else if(type == 2) {
@@ -95,11 +101,23 @@ public class Fragment_afficheCarte extends Fragment {
         else if(type == 4) {
             Type ="Trèfle";
         }
-        //retourne la carte obtenue
-        CarteObtenue.setText("Votre carte est : "+ valeurCarte + " de " + Type);
+
+         */
+
 
         //On définie si la carte est rouge ou noire
-        if( Type.equals("Pique") || Type.equals("Trèfle")){
+        JeuDeCarte jeu = new JeuDeCarte(); //on instancie un jeu de carte
+
+        //retourne la carte obtenue
+        CarteObtenue.setText(jeu.getValeurH(n));
+
+
+        int symboleP = jeu.getValeurH(n).indexOf("Pique"); //on regarde s'il y a le mot pique dans la valeur n de la Hashmap
+        int symboleT = jeu.getValeurH(n).indexOf("Trèfle"); //on regarde s'il y a le mot trèfle dans la valeur n de la Hashmap
+        // la méthode indexof() retourne la position du mot dans la chaîne de caractère.
+        // si indexof() ==-1, le mot n'est pas présent
+
+        if( symboleP != -1 || symboleT != -1){
             //couleur noire
             CouleurCarte = 0;
         }else{
@@ -109,15 +127,16 @@ public class Fragment_afficheCarte extends Fragment {
 
         //Comparaison de la couleur de la carte et du choix de joueur
         if( choixCouleur == CouleurCarte){
-            resultat.setText("Bravo, tu donnes une gorgée au joeur de ton choix");
+            resultat.setText("Bravo, tu donnes une gorgée au joueur de ton choix");
             //Toast.makeText(getContext(), "Bravo, tu donnes une gorgée au joeur de ton choix", Toast.LENGTH_SHORT).show();
         }else{
-            resultat.setText("Ratté, tu bois une gorgées");
+            resultat.setText("Raté, tu bois une gorgées");
             //Toast.makeText(getContext(), "Ratté, tu bois une gorgées", Toast.LENGTH_SHORT).show();
         }
 
 
-        //rentré la carte obtenue par le joueur ds la database et la retirer du paquet
+        //retirer carte du paquet
+        jeu.remove(n);
 
 
         //au click sur le boutton on passe au joueur suivant et donc on retourne ds Fragment RN
