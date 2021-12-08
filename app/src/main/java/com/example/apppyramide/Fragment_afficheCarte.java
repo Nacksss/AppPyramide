@@ -24,6 +24,7 @@ public class Fragment_afficheCarte extends Fragment {
     public String valeurCarte;
     public String Type;
     public int CouleurCarte;
+    public int i;
     ArrayList<String> s1;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -37,7 +38,7 @@ public class Fragment_afficheCarte extends Fragment {
 
         Bundle bundle = this.getArguments();
         int choixCouleur = bundle.getInt("choix");
-        int i = bundle.getInt("nb");
+        i = bundle.getInt("nb");
         s1 = bundle.getStringArrayList("listNom");
         int count = bundle.getInt("count");
 
@@ -47,15 +48,24 @@ public class Fragment_afficheCarte extends Fragment {
         JoueurSuivant.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+
                 //Toast.makeText(getContext(), ""+ count, Toast.LENGTH_SHORT).show();
-                Toast.makeText(getContext(), ""+ i + "", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getContext(), ""+ i + "", Toast.LENGTH_SHORT).show();
 
                 /*if ((i) != (count)) {
                     Fragment_RN fragment_rn = new Fragment_RN();
                     getFragmentManager().beginTransaction().replace(R.id.fragment_containerRN, fragment_rn);
                 }else{*/
-                 Fragment_PlusOuMoins fragment_plusOuMoins = new Fragment_PlusOuMoins();
-                getFragmentManager().beginTransaction().replace(R.id.fragment_containerRN, fragment_plusOuMoins).commit();
+                    Fragment_PlusOuMoins frag = new Fragment_PlusOuMoins();
+                    i=0; // pour repasser au joueur 1
+                    Bundle bundleFr = new Bundle();
+                    bundleFr.putInt("int", i);
+                    bundleFr.putStringArrayList("listNom", s1);
+                    frag.setArguments(bundleFr);
+                    getFragmentManager().beginTransaction().replace(R.id.fragment_containerRN, frag).commit();
+
+
 
 
             }

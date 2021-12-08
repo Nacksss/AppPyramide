@@ -16,7 +16,7 @@ public class Fragment_RN extends Fragment {
     public int choixCouleur; // 0 pr noir, 1 pr rouge
     TextView tv;
     private ArrayList<String> s1;
-    public int i = 0;
+    public int i;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -30,25 +30,27 @@ public class Fragment_RN extends Fragment {
 
         //pr afficher le nom du joueur correspondant
         s1 = bundleNom.getStringArrayList("listNom");
+        //i=0;
         tv.setText("" + s1.get(i));
         int nbJoueur = bundleNom.getInt("count");
         //Toast.makeText(getContext(), ""+ nbJoueur, Toast.LENGTH_SHORT).show();
         //Toast.makeText(getContext(), ""+ i + "", Toast.LENGTH_SHORT).show();
 
-
+        i = i +1;
 
         Button btnRouge = (Button) view.findViewById(R.id.buttonR);
         btnRouge.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Fragment_afficheCarte frag = new Fragment_afficheCarte();
-                i++;
+                //i++;
                 choixCouleur = 1;
                 Bundle bundleR = new Bundle();
                 bundleR.putInt("choix", choixCouleur);
                 bundleR.putInt("nb", i);
                 bundleR.putInt("count", nbJoueur);
                 bundleR.putStringArrayList("listNom",s1);
+
+                Fragment_afficheCarte frag = new Fragment_afficheCarte();
                 frag.setArguments(bundleR);
                 getFragmentManager().beginTransaction().replace(R.id.fragment_containerRN, frag).commit();
 
@@ -59,14 +61,15 @@ public class Fragment_RN extends Fragment {
         btnNoir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Fragment_afficheCarte fragment_afficheCarte = new Fragment_afficheCarte();
-                i++;
+                //i++;
                 choixCouleur = 0;
                 Bundle bundle = new Bundle();
                 bundle.putInt("choix", choixCouleur);
                 bundle.putInt("nb", i);
                 bundle.putInt("count", nbJoueur);
                 bundle.putStringArrayList("listNom",s1);
+
+                Fragment_afficheCarte fragment_afficheCarte = new Fragment_afficheCarte();
                 fragment_afficheCarte.setArguments(bundle);
                 getFragmentManager().beginTransaction().replace(R.id.fragment_containerRN, fragment_afficheCarte).commit();
             }

@@ -7,7 +7,6 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -15,32 +14,32 @@ import java.util.ArrayList;
 
 public class Fragment_PlusOuMoins extends Fragment {
 
-    TextView nom, textv, carte_précédente;
-    Button ButtonPlus, ButtonMoins;
-    int i, r;
-    ArrayList<String> s1;
+    public TextView nom, textv, carte_précédente;
+    public Button ButtonPlus, ButtonMoins;
+    public int i, r;
+    public ArrayList<String> s1;
 
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment__plus_ou_moins, container, false);
+        View view = inflater.inflate(R.layout.fragment_plus_ou_moins, container, false);
 
         //Initialisation des variables
         ButtonPlus= view.findViewById(R.id.buttonPlus);
         ButtonMoins= view.findViewById(R.id.buttonMoins);
         nom= view.findViewById(R.id.nom);
         textv= view.findViewById(R.id.textv);
-        carte_précédente= view.findViewById(R.id.carte_précédente);
+        carte_précédente= view.findViewById(R.id.carte_precedante);
 
         Bundle bundleA = getArguments();
         s1 = bundleA.getStringArrayList("listNom");
         i = bundleA.getInt("num");
 
         //affiche le nom du joueur qui a tiré la carte
-        nom.setText(""+s1.get(i-1));
+        nom.setText(""+s1.get(i));
 
         //affiche la carte tiréé par le joueur au tour suivant
-        carte_précédente.setText("Votre précédente carte était : " /* +joueur i carte */);
+        carte_précédente.setText("Votre précédente carte était : "   );//+joueur i carte
 
         //au clik sur les btns
         ButtonPlus.setOnClickListener(new View.OnClickListener() {

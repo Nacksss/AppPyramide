@@ -3,13 +3,11 @@ package com.example.apppyramide;
 import static com.example.apppyramide.R.id.fragment_containerRN;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.widget.ListView;
 import android.widget.Toast;
-
 import java.util.ArrayList;
 
 

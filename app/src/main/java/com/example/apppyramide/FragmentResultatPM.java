@@ -40,7 +40,7 @@ public class FragmentResultatPM extends Fragment {
         //donne les deux cartes du joeurs
 
         //Btn joueurs suivant
-        Jsuivant.setOnClickListener(new View.OnClickListener() {
+        /*Jsuivant.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //si il reste des joeurs dans ce tour
@@ -49,7 +49,7 @@ public class FragmentResultatPM extends Fragment {
                 //else
 
             }
-        });
+        });*/
 
         return view;
     }
