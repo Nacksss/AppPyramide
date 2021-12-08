@@ -2,18 +2,15 @@ package com.example.apppyramide;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import java.util.ArrayList;
-import java.util.List;
+
 
 public class ActivityNomJoeurs extends AppCompatActivity {
 
@@ -45,12 +42,10 @@ public class ActivityNomJoeurs extends AppCompatActivity {
         //fin initialisation
 
         //recoit la variable entiere count du Fragment_CbDeJoueurs
-        Bundle bundle = getIntent().getExtras();
-        int val = bundle.getInt("count");
+        int val = getIntent().getIntExtra("count",0);
 
         //afficher les differents btn en fct du nombre de joueur
         debutJeu.setVisibility(View.INVISIBLE);
-
 
         //Fonction du click sur ajouter joueur
         btnAdd.setOnClickListener(new View.OnClickListener() {
@@ -85,19 +80,11 @@ public class ActivityNomJoeurs extends AppCompatActivity {
         debutJeu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (arrayList.isEmpty()) {
-                    Toast.makeText(getApplicationContext(), "Vous ne pouvez pas lancer la partie sans rentrer le nom des participants", Toast.LENGTH_SHORT).show();
-                } else {
-                    //transmettre la liste de l'activité à un fragment
-                    Bundle bundle1 = new Bundle();
-                    bundle1.getStringArrayList("list") ;
-                    ArrayList<String> s = arrayList;
-
-                    Intent intent = new Intent(ActivityNomJoeurs.this, activity_carteRN.class);
-                    intent.putExtra("listNom", s);;
-                    startActivity(intent);
-
-                }
+                //transmettre la liste de l'activité à un fragment
+                Intent intent = new Intent(ActivityNomJoeurs.this, activity_carteRN.class);
+                intent.putExtra("listNom", arrayList);;
+                intent.putExtra("count", val);
+                startActivity(intent);
             }
         });
     }

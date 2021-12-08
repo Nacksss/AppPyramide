@@ -25,7 +25,6 @@ public class Fragment_Accueil extends Fragment {
         }
     });
 
-
         return view;
 }
 

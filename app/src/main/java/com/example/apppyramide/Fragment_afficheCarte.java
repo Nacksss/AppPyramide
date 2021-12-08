@@ -12,40 +12,65 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 
 public class Fragment_afficheCarte extends Fragment {
 
-    TextView CarteObtenue;
+    TextView CarteObtenue, nomJoueur;
     TextView resultat;
     Button JoueurSuivant;
     public String valeurCarte;
     public String Type;
     public int CouleurCarte;
+    ArrayList<String> s1;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_affiche_carte, container, false);
 
-        Bundle bundle = this.getArguments();
-        int choixCouleur = bundle.getInt("choix");
-
-        //affichage aléatoire de la carte
-        //Random r = new Random();
-        //int n = r.nextInt(13);
-        //Random r1 = new Random();
-        //int type = r1.nextInt(4);
-
-        //affichage aléatoire carte avec Hashmap
-        Random r = new Random();
-        int n = r.nextInt(52);
-
         CarteObtenue = (TextView) view.findViewById(R.id.carte_Tiré) ;
         resultat = (TextView) view.findViewById(R.id.resultat) ;
         JoueurSuivant = (Button) view.findViewById(R.id.joueursuivant);
+        nomJoueur = view.findViewById(R.id.NomJoueur);
 
-        /* on définie le num de la carte
+        Bundle bundle = this.getArguments();
+        int choixCouleur = bundle.getInt("choix");
+        int i = bundle.getInt("nb");
+        s1 = bundle.getStringArrayList("listNom");
+        int count = bundle.getInt("count");
+
+        nomJoueur.setText("" + s1.get(i-1));
+        //Toast.makeText(getContext(), ""+ i + "", Toast.LENGTH_SHORT).show();
+
+        JoueurSuivant.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //Toast.makeText(getContext(), ""+ count, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), ""+ i + "", Toast.LENGTH_SHORT).show();
+
+                /*if ((i) != (count)) {
+                    Fragment_RN fragment_rn = new Fragment_RN();
+                    getFragmentManager().beginTransaction().replace(R.id.fragment_containerRN, fragment_rn);
+                }else{*/
+                 Fragment_PlusOuMoins fragment_plusOuMoins = new Fragment_PlusOuMoins();
+                getFragmentManager().beginTransaction().replace(R.id.fragment_containerRN, fragment_plusOuMoins).commit();
+
+
+            }
+        });
+
+
+
+        //affichage aléatoire de la carte
+        Random r = new Random();
+        int n = r.nextInt(13);
+        Random r1 = new Random();
+        int type = r1.nextInt(4);
+
+
+        //on définie le num de la carte
         if(n == 1) {
             valeurCarte ="As";
         }
@@ -85,11 +110,9 @@ public class Fragment_afficheCarte extends Fragment {
         else if(n == 13) {
             valeurCarte ="K";
         }
-        */
-
 
         //On définie le type de la carte
-        /*if(type == 1) {
+        if(type == 1) {
             Type ="Coeur";
         }
         else if(type == 2) {
@@ -101,23 +124,11 @@ public class Fragment_afficheCarte extends Fragment {
         else if(type == 4) {
             Type ="Trèfle";
         }
-
-         */
-
+        //retourne la carte obtenue
+        CarteObtenue.setText("Votre carte est : "+ valeurCarte + " de " + Type);
 
         //On définie si la carte est rouge ou noire
-        JeuDeCarte jeu = new JeuDeCarte(); //on instancie un jeu de carte
-
-        //retourne la carte obtenue
-        CarteObtenue.setText(jeu.getValeurH(n));
-
-
-        int symboleP = jeu.getValeurH(n).indexOf("Pique"); //on regarde s'il y a le mot pique dans la valeur n de la Hashmap
-        int symboleT = jeu.getValeurH(n).indexOf("Trèfle"); //on regarde s'il y a le mot trèfle dans la valeur n de la Hashmap
-        // la méthode indexof() retourne la position du mot dans la chaîne de caractère.
-        // si indexof() ==-1, le mot n'est pas présent
-
-        if( symboleP != -1 || symboleT != -1){
+        if( Type.equals("Pique") || Type.equals("Trèfle")){
             //couleur noire
             CouleurCarte = 0;
         }else{
@@ -127,40 +138,14 @@ public class Fragment_afficheCarte extends Fragment {
 
         //Comparaison de la couleur de la carte et du choix de joueur
         if( choixCouleur == CouleurCarte){
-            resultat.setText("Bravo, tu donnes une gorgée au joueur de ton choix");
-            //Toast.makeText(getContext(), "Bravo, tu donnes une gorgée au joeur de ton choix", Toast.LENGTH_SHORT).show();
+            resultat.setText("Bravo, tu donnes une gorgée au joeur de ton choix");
         }else{
-            resultat.setText("Raté, tu bois une gorgées");
-            //Toast.makeText(getContext(), "Ratté, tu bois une gorgées", Toast.LENGTH_SHORT).show();
+            resultat.setText("Ratté, tu bois une gorgée");
         }
 
 
-        //retirer carte du paquet
-        jeu.remove(n);
+        //rentré la carte obtenue par le joueur ds la database et la retirer du paquet
 
-
-        //au click sur le boutton on passe au joueur suivant et donc on retourne ds Fragment RN
-
-        //si tous les joueurs n'ont pas encore fait le premier tour
-        //on renvoie vers fragment RN
-        //si non vers le prochaine frag
-        JoueurSuivant.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //if (il reste des joueurs )
-                    FragmentTransaction fr = getFragmentManager().beginTransaction();
-                    fr.replace(R.id.fragment_containerRN, new Fragment_RN());
-                    fr.commit();
-                //else{
-                    //FragmentTransaction fr1 = getFragmentManager().beginTransaction();
-                    //fr1.replace(R.id.fragment_containerRN, new Fragment_PlusOuMoins());
-                    //fr1.commit();
-                //}
-            }
-        });
-
-        //une fois que ts les joeurs on joué la première manche on passe à la manche suivante et donc on renvoir
-        //vers un autre fragments
 
         return view;
     }

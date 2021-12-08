@@ -12,7 +12,7 @@
         android:layout_height="129dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="102dp"
+        android:layout_marginTop="113dp"
         android:text=""
         android:textColor="@color/black"
         android:textSize="25dp" />
@@ -39,5 +39,16 @@
         android:layout_marginEnd="34dp"
         android:layout_marginBottom="15dp"
         android:text="Joueur Suivant" />
+
+    <TextView
+        android:id="@+id/NomJoueur"
+        android:layout_width="155dp"
+        android:layout_height="55dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="52dp"
+        android:text=""
+        android:textColor="@color/black"
+        android:textSize="25dp" />
 
 </RelativeLayout>

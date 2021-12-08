@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,6 +18,8 @@ public class Fragment_CbDeJoueurs extends Fragment {
     public int count;
     TextView valCount;
     Button ButtonOK, ButtonPlus, ButtonMoins;
+
+    public String tab0[], tab1[],tab2[],tab3[],tab4[],tab5[],tab6[];
 
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -61,6 +64,8 @@ public class Fragment_CbDeJoueurs extends Fragment {
             }
         });
 
+
+
         //Fonction du click sur Ok
         ButtonOK.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,16 +74,10 @@ public class Fragment_CbDeJoueurs extends Fragment {
                     Toast.makeText(getContext(), "Il ne peut pas y avoir 0 joueur", Toast.LENGTH_SHORT).show();
                 }
                 else {
-                    count = count;
-
                     //pour ouvrir une activité et transmettre une val
-                    Bundle bundle = new Bundle();
-                    bundle.getInt("count", count);
-
                     Intent in = new Intent(getActivity(), ActivityNomJoeurs.class);
                     in.putExtra("count",count);
                     startActivity(in);
-                    //Toast.makeText(getContext(), ""+ count, Toast.LENGTH_SHORT).show();
                 }
             }
         });
