@@ -31,7 +31,9 @@ public class Fragment_RN extends Fragment {
         //pr afficher le nom du joueur correspondant
         s1 = bundleNom.getStringArrayList("listNom");
         //i=0;
+        //i = bundleNom.getInt("int");
         tv.setText("" + s1.get(i));
+
         int nbJoueur = bundleNom.getInt("count");
         //Toast.makeText(getContext(), ""+ nbJoueur, Toast.LENGTH_SHORT).show();
         //Toast.makeText(getContext(), ""+ i + "", Toast.LENGTH_SHORT).show();

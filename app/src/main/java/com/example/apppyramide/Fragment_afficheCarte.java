@@ -23,7 +23,7 @@ public class Fragment_afficheCarte extends Fragment {
     Button JoueurSuivant;
     public String valeurCarte;
     public String Type;
-    public int CouleurCarte;
+    public int CouleurCarte, count;
     public int i;
     ArrayList<String> s1;
 
@@ -40,36 +40,40 @@ public class Fragment_afficheCarte extends Fragment {
         int choixCouleur = bundle.getInt("choix");
         i = bundle.getInt("nb");
         s1 = bundle.getStringArrayList("listNom");
-        int count = bundle.getInt("count");
+        count = bundle.getInt("count");
 
         nomJoueur.setText("" + s1.get(i-1));
         //Toast.makeText(getContext(), ""+ i + "", Toast.LENGTH_SHORT).show();
 
-        JoueurSuivant.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-
-                //Toast.makeText(getContext(), ""+ count, Toast.LENGTH_SHORT).show();
-                //Toast.makeText(getContext(), ""+ i + "", Toast.LENGTH_SHORT).show();
-
-                /*if ((i) != (count)) {
-                    Fragment_RN fragment_rn = new Fragment_RN();
-                    getFragmentManager().beginTransaction().replace(R.id.fragment_containerRN, fragment_rn);
-                }else{*/
+        Toast.makeText(getContext(), ""+ i + "", Toast.LENGTH_SHORT).show();
+        if( i == count){
+            JoueurSuivant.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
                     Fragment_PlusOuMoins frag = new Fragment_PlusOuMoins();
-                    i=0; // pour repasser au joueur 1
+                    i = 0; // pour repasser au joueur 1
                     Bundle bundleFr = new Bundle();
                     bundleFr.putInt("int", i);
                     bundleFr.putStringArrayList("listNom", s1);
                     frag.setArguments(bundleFr);
                     getFragmentManager().beginTransaction().replace(R.id.fragment_containerRN, frag).commit();
-
-
-
-
-            }
-        });
+                }
+            });
+        }
+        else{
+            JoueurSuivant.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Fragment_RN fragment_rn = new Fragment_RN();
+                    //Fragment_PlusOuMoins fragment_rn = new Fragment_PlusOuMoins();
+                    Bundle bundlef = new Bundle();
+                    //bundlef.putInt("int", i);
+                    bundlef.putStringArrayList("listNom", s1);
+                    fragment_rn.setArguments(bundlef);
+                    getFragmentManager().beginTransaction().replace(R.id.fragment_containerRN, fragment_rn);
+                }
+            });
+        }
 
 
 

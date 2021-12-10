@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 public class FragmentResultatPM extends Fragment {
 
-    public TextView resultapm;
+    public TextView resultapm, firstcarte, secondcarte;
     public Button Jsuivant;
     public int r;
 
@@ -22,6 +22,8 @@ public class FragmentResultatPM extends Fragment {
 
         //Initialisation des variables
         resultapm = view.findViewById(R.id.resultatpm);
+        firstcarte = view.findViewById(R.id.firstcarte);
+        secondcarte = view.findViewById(R.id.secondcarte);
         Jsuivant = view.findViewById(R.id.prochain_joueur);
 
         Bundle bundleR = getArguments();
@@ -36,20 +38,22 @@ public class FragmentResultatPM extends Fragment {
             //Toast.makeText(getContext(), "Ratté, tu bois une gorgées", Toast.LENGTH_SHORT).show();
         }
 
+        firstcarte.setText("1ère carte tirée : \n"); //rajouter le carte
+        secondcarte.setText("2ème carte tirée : \n"); //rajouter le carte
 
         //donne les deux cartes du joeurs
 
         //Btn joueurs suivant
-        /*Jsuivant.setOnClickListener(new View.OnClickListener() {
+        //si il reste des joeurs dans ce tour
+        // on retourse ds fragm Plus ou Moins
+        //else
+        Jsuivant.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //si il reste des joeurs dans ce tour
-                // on retourse ds fragm Plus ou Moins
-
-                //else
-
+                Fragment_symbole fragment_symbole = new Fragment_symbole();
+                getFragmentManager().beginTransaction().replace(R.id.fragment_containerRN, fragment_symbole).commit();
             }
-        });*/
+        });
 
         return view;
     }
