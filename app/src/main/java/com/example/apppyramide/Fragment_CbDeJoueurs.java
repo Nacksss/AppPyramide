@@ -11,6 +11,9 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class Fragment_CbDeJoueurs extends Fragment {
 
@@ -19,7 +22,7 @@ public class Fragment_CbDeJoueurs extends Fragment {
     TextView valCount;
     Button ButtonOK, ButtonPlus, ButtonMoins;
 
-    public String tab0[], tab1[],tab2[],tab3[],tab4[],tab5[],tab6[];
+    public ArrayList<String> L1, L2, L3,L4, L5, L6;
 
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -31,6 +34,7 @@ public class Fragment_CbDeJoueurs extends Fragment {
         ButtonPlus= (Button)view.findViewById(R.id.plusbutton);
         ButtonMoins= (Button)view.findViewById(R.id.moinsbutton);
         valCount = (TextView)view.findViewById(R.id.valCount);
+
 
         // fonction du click sur +
         ButtonPlus.setOnClickListener(new View.OnClickListener() {
@@ -77,6 +81,8 @@ public class Fragment_CbDeJoueurs extends Fragment {
                     //pour ouvrir une activité et transmettre une val
                     Intent in = new Intent(getActivity(), ActivityNomJoeurs.class);
                     in.putExtra("count",count);
+                    in.putStringArrayListExtra("l1", L1);
+                    in.putStringArrayListExtra("l2", L2);
                     startActivity(in);
                 }
             }

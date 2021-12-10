@@ -6,9 +6,35 @@
     android:layout_height="match_parent"
     tools:context=".Fragment_symbole">
 
+
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="97dp"
+        android:layout_marginTop="105dp"
+        android:text="De quel symbole sera votre carte ?" />
+
+    <EditText
+        android:id="@+id/choixSymbole"
+        android:layout_width="249dp"
+        android:layout_height="150dp"
+        android:layout_alignParentStart="true"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="87dp"
+        android:layout_marginTop="255dp"
+        android:hint="Tapez le symbole" />
+
+    <Button
+        android:id="@+id/btnValidation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="166dp"
+        android:text="Valider le choix" />
 
 </RelativeLayout>

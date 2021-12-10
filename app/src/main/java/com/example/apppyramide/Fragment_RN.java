@@ -17,7 +17,7 @@ public class Fragment_RN extends Fragment {
     public int choixCouleur; // 0 pr noir, 1 pr rouge
     TextView tv;
     private ArrayList<String> s1;
-    public int i;
+    public int i, newI;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -28,18 +28,29 @@ public class Fragment_RN extends Fragment {
 
 
         Bundle bundleNom = getArguments();
-
         //pr afficher le nom du joueur correspondant
         s1 = bundleNom.getStringArrayList("listNom");
+
+        Bundle bundlef = getArguments();
+        newI = bundlef.getInt("int");
+        ArrayList<String> a = bundleNom.getStringArrayList("l1");
+        ArrayList<String> b = bundleNom.getStringArrayList("l2");
+
         //i=0;
         //i = bundleNom.getInt("int");
-        tv.setText("" + s1.get(i));
+        if(i==0){
+            tv.setText("" + s1.get(i));
+        }else{
+            tv.setText(""+ s1.get(newI));
+        }
+
+
 
         int nbJoueur = bundleNom.getInt("count");
         //Toast.makeText(getContext(), ""+ nbJoueur, Toast.LENGTH_SHORT).show();
         //Toast.makeText(getContext(), ""+ i + "", Toast.LENGTH_SHORT).show();
 
-        i = i +1;
+        //i = i +1;
 
 
 
@@ -60,12 +71,13 @@ public class Fragment_RN extends Fragment {
                 bundleR.putInt("choix", choixCouleur);
                 bundleR.putInt("nb", i);
                 bundleR.putInt("count", nbJoueur);
+                bundleR.putStringArrayList("l1",a);
+                bundleR.putStringArrayList("l2",b);
                 bundleR.putStringArrayList("listNom",s1);
 
                 Fragment_afficheCarte frag = new Fragment_afficheCarte();
                 frag.setArguments(bundleR);
                 getFragmentManager().beginTransaction().replace(R.id.fragment_containerRN, frag).commit();
-
             }
         });
 
@@ -79,6 +91,8 @@ public class Fragment_RN extends Fragment {
                 bundle.putInt("choix", choixCouleur);
                 bundle.putInt("nb", i);
                 bundle.putInt("count", nbJoueur);
+                bundle.putStringArrayList("l1",a);
+                bundle.putStringArrayList("l2",b);
                 bundle.putStringArrayList("listNom",s1);
 
                 Fragment_afficheCarte fragment_afficheCarte = new Fragment_afficheCarte();

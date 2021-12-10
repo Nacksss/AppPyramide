@@ -38,10 +38,11 @@ public class FragmentResultatPM extends Fragment {
             //Toast.makeText(getContext(), "Ratté, tu bois une gorgées", Toast.LENGTH_SHORT).show();
         }
 
+        //donne les deux cartes du joeurs
         firstcarte.setText("1ère carte tirée : \n"); //rajouter le carte
         secondcarte.setText("2ème carte tirée : \n"); //rajouter le carte
 
-        //donne les deux cartes du joeurs
+
 
         //Btn joueurs suivant
         //si il reste des joeurs dans ce tour

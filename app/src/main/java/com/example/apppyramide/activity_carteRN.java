@@ -24,6 +24,9 @@ public class activity_carteRN extends AppCompatActivity {
         //recoit l'arraylist des noms des joueurs de l'activité Nom joueurs
         ArrayList<String> s1 = getIntent().getStringArrayListExtra("listNom");
         int val = getIntent().getIntExtra("count",0);
+        ArrayList<String> a = getIntent().getStringArrayListExtra("l1");
+        ArrayList<String> b = getIntent().getStringArrayListExtra("l2");
+
         //Toast.makeText(getApplicationContext(), ""+ s1, Toast.LENGTH_SHORT).show();
 
         //ouverture du 1fragment Rouge ou Noir dès l'ouverture de cette activité( avec le btn lancer partie)
@@ -41,6 +44,9 @@ public class activity_carteRN extends AppCompatActivity {
                 Bundle bundleNom = new Bundle();
                 bundleNom.putStringArrayList("listNom", s1);
                 bundleNom.putInt("count", val);
+                bundleNom.putStringArrayList("l1",a);
+                bundleNom.putStringArrayList("l2",b);
+
                 fragment_rn.setArguments(bundleNom);
                 fragmentTransaction.replace(fragment_containerRN, fragment_rn);
                 fragmentTransaction.commit();

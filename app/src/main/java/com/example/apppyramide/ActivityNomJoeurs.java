@@ -43,6 +43,8 @@ public class ActivityNomJoeurs extends AppCompatActivity {
 
         //recoit la variable entiere count du Fragment_CbDeJoueurs
         int val = getIntent().getIntExtra("count",0);
+        ArrayList<String> a = getIntent().getStringArrayListExtra("l1");
+        ArrayList<String> b = getIntent().getStringArrayListExtra("l2");
 
         //afficher les differents btn en fct du nombre de joueur
         debutJeu.setVisibility(View.INVISIBLE);
@@ -82,8 +84,13 @@ public class ActivityNomJoeurs extends AppCompatActivity {
             public void onClick(View view) {
                 //transmettre la liste de l'activité à un fragment
                 Intent intent = new Intent(ActivityNomJoeurs.this, activity_carteRN.class);
-                intent.putExtra("listNom", arrayList);;
+                intent.putExtra("listNom", arrayList);
                 intent.putExtra("count", val);
+
+                //transmission des liste pour chaque joueurs
+                intent.putStringArrayListExtra("l1",a);
+                intent.putStringArrayListExtra("l2",b);
+
                 startActivity(intent);
             }
         });
