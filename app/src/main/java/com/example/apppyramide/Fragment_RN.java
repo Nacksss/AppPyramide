@@ -10,6 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Fragment_RN extends Fragment {
 
@@ -22,7 +23,7 @@ public class Fragment_RN extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_rn, container, false);
 
-        //recoit l'arraylist des noms des joeurs de l'activité carte RN
+        //recoit l'arraylist des noms des joueurs de l'activité carte RN
         tv = (TextView) view.findViewById(R.id.nomjoueur);
 
 
@@ -39,6 +40,15 @@ public class Fragment_RN extends Fragment {
         //Toast.makeText(getContext(), ""+ i + "", Toast.LENGTH_SHORT).show();
 
         i = i +1;
+
+
+
+        //on va regarder si jeu de carte fonctionne
+        //JeuDeCarte jeu = new JeuDeCarte(); //on instancie un jeu de carte
+        //affichage aléatoire carte avec Hashmap
+        Random r = new Random();
+        int n = r.nextInt(52);
+        //Toast.makeText(getContext(), "" + jeu.getCarte(n), Toast.LENGTH_SHORT).show();
 
         Button btnRouge = (Button) view.findViewById(R.id.buttonR);
         btnRouge.setOnClickListener(new View.OnClickListener() {

@@ -21,7 +21,7 @@ public class activity_carteRN extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cartern);
 
-        //recoit l'arraylist des noms des joeurs de l'activité Nom joueurs
+        //recoit l'arraylist des noms des joueurs de l'activité Nom joueurs
         ArrayList<String> s1 = getIntent().getStringArrayListExtra("listNom");
         int val = getIntent().getIntExtra("count",0);
         //Toast.makeText(getApplicationContext(), ""+ s1, Toast.LENGTH_SHORT).show();
