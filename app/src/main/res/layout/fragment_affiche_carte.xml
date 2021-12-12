@@ -12,7 +12,7 @@
         android:layout_height="129dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="113dp"
+        android:layout_marginTop="151dp"
         android:text=""
         android:textColor="@color/black"
         android:textSize="25dp" />

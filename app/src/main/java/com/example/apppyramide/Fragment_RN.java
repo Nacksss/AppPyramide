@@ -2,6 +2,8 @@ package com.example.apppyramide;
 
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
+
+import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class Fragment_RN extends Fragment {
@@ -17,6 +20,7 @@ public class Fragment_RN extends Fragment {
     public int choixCouleur; // 0 pr noir, 1 pr rouge
     TextView tv;
     private ArrayList<String> s1;
+    public ArrayList<String> liste_1;
     public int i, newI;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -30,11 +34,15 @@ public class Fragment_RN extends Fragment {
         Bundle bundleNom = getArguments();
         //pr afficher le nom du joueur correspondant
         s1 = bundleNom.getStringArrayList("listNom");
+        liste_1 = bundleNom.getStringArrayList("l1");
+        int nbJoueur = bundleNom.getInt("count");
+        //Toast.makeText(getContext(), ""+ nbJoueur, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getContext(), ""+ i + "", Toast.LENGTH_SHORT).show();
 
         Bundle bundlef = getArguments();
         newI = bundlef.getInt("int");
-        ArrayList<String> a = bundleNom.getStringArrayList("l1");
-        ArrayList<String> b = bundleNom.getStringArrayList("l2");
+        //ArrayList<String> a = bundleNom.getStringArrayList("l1");
+        //ArrayList<String> b = bundleNom.getStringArrayList("l2");
 
         //i=0;
         //i = bundleNom.getInt("int");
@@ -46,12 +54,7 @@ public class Fragment_RN extends Fragment {
 
 
 
-        int nbJoueur = bundleNom.getInt("count");
-        //Toast.makeText(getContext(), ""+ nbJoueur, Toast.LENGTH_SHORT).show();
-        //Toast.makeText(getContext(), ""+ i + "", Toast.LENGTH_SHORT).show();
-
-        //i = i +1;
-
+        i = i +1;
 
 
         //on va regarder si jeu de carte fonctionne
@@ -71,8 +74,9 @@ public class Fragment_RN extends Fragment {
                 bundleR.putInt("choix", choixCouleur);
                 bundleR.putInt("nb", i);
                 bundleR.putInt("count", nbJoueur);
-                bundleR.putStringArrayList("l1",a);
-                bundleR.putStringArrayList("l2",b);
+                //bundleR.putStringArrayList("l1",a);
+                //bundleR.putStringArrayList("l2",b);
+                bundleR.putStringArrayList("l1", liste_1);
                 bundleR.putStringArrayList("listNom",s1);
 
                 Fragment_afficheCarte frag = new Fragment_afficheCarte();
@@ -91,8 +95,9 @@ public class Fragment_RN extends Fragment {
                 bundle.putInt("choix", choixCouleur);
                 bundle.putInt("nb", i);
                 bundle.putInt("count", nbJoueur);
-                bundle.putStringArrayList("l1",a);
-                bundle.putStringArrayList("l2",b);
+                //bundle.putStringArrayList("l1",a);
+                //bundle.putStringArrayList("l2",b);
+                bundle.putStringArrayList("l1", liste_1);
                 bundle.putStringArrayList("listNom",s1);
 
                 Fragment_afficheCarte fragment_afficheCarte = new Fragment_afficheCarte();

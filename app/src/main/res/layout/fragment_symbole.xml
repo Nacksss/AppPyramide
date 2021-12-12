@@ -14,17 +14,19 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="97dp"
-        android:layout_marginTop="105dp"
-        android:text="De quel symbole sera votre carte ?" />
+        android:layout_marginStart="11dp"
+        android:layout_marginTop="193dp"
+        android:text="De quel symbole sera votre carte ?"
+        android:textColor="@color/black"
+        android:textSize="25dp" />
 
     <EditText
         android:id="@+id/choixSymbole"
-        android:layout_width="249dp"
-        android:layout_height="150dp"
+        android:layout_width="196dp"
+        android:layout_height="84dp"
         android:layout_alignParentStart="true"
         android:layout_centerInParent="true"
-        android:layout_marginStart="87dp"
+        android:layout_marginStart="106dp"
         android:layout_marginTop="255dp"
         android:hint="Tapez le symbole" />
 
@@ -36,5 +38,16 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="166dp"
         android:text="Valider le choix" />
+
+    <TextView
+        android:id="@+id/NOMjoueur"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="104dp"
+        android:text=""
+        android:textColor="@color/black"
+        android:textSize="21dp"/>
 
 </RelativeLayout>

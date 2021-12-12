@@ -1,7 +1,7 @@
 package com.example.apppyramide;
 
 public class Carte {
-    static String[] typesCarte = {"Coeur", "Carreau", "Trèfle", "Pique"};
+    static String[] typesCarte = {"Coeur", "Carreau", "Trefle", "Pique"};
     static String[] valeursCarte = {"As", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Valet", "Dame", "Roi"};
 
     private String myType;

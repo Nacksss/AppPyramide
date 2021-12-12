@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragment_resultatSymbole">
+
+
+    <Button
+            android:id="@+id/next_player"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="35dp"
+            android:layout_marginBottom="34dp"
+            android:text="Joueur suivant " />
+
+    <TextView
+            android:id="@+id/resultatSymbole"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="181dp"
+            android:text=""
+            android:textColor="@color/black"
+            android:textSize="25dp" />
+
+    <TextView
+        android:id="@+id/premierecarte"
+        android:layout_width="156dp"
+        android:layout_height="100dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="19dp"
+        android:layout_marginBottom="327dp"
+        android:text=""
+        android:textColor="@color/black"
+        android:textSize="21dp" />
+
+    <TextView
+        android:id="@+id/deuxiemecarte"
+        android:layout_width="144dp"
+        android:layout_height="104dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="38dp"
+        android:layout_marginBottom="323dp"
+        android:text=""
+        android:textColor="@color/black"
+        android:textSize="21dp" />
+
+    <Button
+            android:id="@+id/finJeu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="37dp"
+            android:layout_marginBottom="77dp"
+            android:text="FIN !" />
+
+    <TextView
+            android:id="@+id/namejoueur"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="99dp"
+            android:text=""
+            android:textColor="@color/black"
+            android:textSize="22dp"/>
+
+    <TextView
+        android:id="@+id/derniereCarte"
+        android:layout_width="128dp"
+        android:layout_height="123dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="167dp"
+        android:text=""
+        android:textColor="@color/black"
+        android:textSize="21dp"/>
+
+
+</RelativeLayout>

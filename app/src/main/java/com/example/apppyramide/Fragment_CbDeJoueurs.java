@@ -3,6 +3,8 @@ package com.example.apppyramide;
 import android.content.Intent;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
+
+import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,7 +14,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 public class Fragment_CbDeJoueurs extends Fragment {
@@ -21,8 +25,7 @@ public class Fragment_CbDeJoueurs extends Fragment {
     public int count;
     TextView valCount;
     Button ButtonOK, ButtonPlus, ButtonMoins;
-
-    public ArrayList<String> L1, L2, L3,L4, L5, L6;
+    ArrayList<String> liste_1, liste_2,liste_3,liste_4,liste_5,liste_6;
 
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -81,8 +84,21 @@ public class Fragment_CbDeJoueurs extends Fragment {
                     //pour ouvrir une activité et transmettre une val
                     Intent in = new Intent(getActivity(), ActivityNomJoeurs.class);
                     in.putExtra("count",count);
-                    in.putStringArrayListExtra("l1", L1);
-                    in.putStringArrayListExtra("l2", L2);
+
+                    //créer des listes pr chaques joueurs pour pouvoir ranger leurs cartes
+                    /*ArrayList<String> listeDeStrings= new ArrayList<String>();
+                    for(int  i = 0; i<count; i++){
+                         listeDeStrings.add(new ArrayList<Integer>());
+                    }*/
+                    //map.get("liste_1").add(1);
+                    //Toast.makeText(getContext(), ""+liste_1, Toast.LENGTH_SHORT).show();
+
+                    liste_1 = new ArrayList<>();
+                    in.putStringArrayListExtra("l1",liste_1);
+
+                    //in.putStringArrayListExtra("l1",liste_1);
+                    //in.putStringArrayListExtra("l1", L1);
+                    //in.putStringArrayListExtra("l2", L2);
                     startActivity(in);
                 }
             }
