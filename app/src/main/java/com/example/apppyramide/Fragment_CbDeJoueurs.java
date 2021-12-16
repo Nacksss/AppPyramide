@@ -88,7 +88,7 @@ public class Fragment_CbDeJoueurs extends Fragment {
                     //créer des listes pr chaques joueurs pour pouvoir ranger leurs cartes
                     /*ArrayList<String> listeDeStrings= new ArrayList<String>();
                     for(int  i = 0; i<count; i++){
-                         listeDeStrings.add(new ArrayList<Integer>());
+                         listeDeStrings.add(i new  ArrayList<String>());
                     }*/
                     //map.get("liste_1").add(1);
                     //Toast.makeText(getContext(), ""+liste_1, Toast.LENGTH_SHORT).show();

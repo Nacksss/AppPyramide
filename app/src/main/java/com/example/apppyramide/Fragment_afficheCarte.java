@@ -42,8 +42,7 @@ public class Fragment_afficheCarte extends Fragment {
         s1 = bundle.getStringArrayList("listNom");
         count = bundle.getInt("count");
         liste_1= bundle.getStringArrayList("l1");
-        //ArrayList<String> a = bundle.getStringArrayList("l1");
-        //ArrayList<String> b = bundle.getStringArrayList("l2");
+
 
         nomJoueur.setText("" + s1.get(i-1));
 
