@@ -56,7 +56,7 @@ public class Fragment_resultatSymbole extends Fragment {
         JeuDeCarte jeu = new JeuDeCarte();
 
         liste.add("" + jeu.getCarte(n).getValue() + " " + jeu.getCarte(n).getType());
-        Toast.makeText(getContext(), ""+ liste, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getContext(), ""+ liste, Toast.LENGTH_SHORT).show();
 
 
         premierecarte.setText("1ère carte tirée : \n " + liste.get(0));
@@ -80,6 +80,10 @@ public class Fragment_resultatSymbole extends Fragment {
             fin.setVisibility(View.INVISIBLE);
             joueurSuivant.setVisibility(View.VISIBLE);
         }
+
+        //enlève la carte
+        jeu.removeCarte(n);
+        //Toast.makeText(getContext(), ""+ jeu, Toast.LENGTH_SHORT).show();
 
 
        joueurSuivant.setOnClickListener(new View.OnClickListener() {

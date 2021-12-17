@@ -95,7 +95,7 @@ public class Fragment_afficheCarte extends Fragment {
 
 
         //retirer carte du paquet
-        //jeu.removeCarte(n);
+        jeu.removeCarte(n);
 
         JoueurSuivant.setOnClickListener(new View.OnClickListener() {
             @Override

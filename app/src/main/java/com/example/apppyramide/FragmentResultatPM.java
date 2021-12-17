@@ -93,6 +93,9 @@ public class FragmentResultatPM extends Fragment {
         int v2 = Integer.parseInt(val2);
         //Toast.makeText(getContext(), ""+v2, Toast.LENGTH_SHORT).show();
 
+        //enlève la carte
+        jeu.removeCarte(n);
+
 
 
         //affiche le résultat ds un txtView
