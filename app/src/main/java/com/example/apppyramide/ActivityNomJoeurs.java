@@ -2,6 +2,7 @@ package com.example.apppyramide;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -45,6 +46,10 @@ public class ActivityNomJoeurs extends AppCompatActivity {
         int val = getIntent().getIntExtra("count",0);
         ArrayList<String> a = getIntent().getStringArrayListExtra("l1");
         ArrayList<String> b = getIntent().getStringArrayListExtra("l2");
+        //Parcelable[] tabListes = getIntent().getParcelableArrayExtra("tabListes");
+        //Toast.makeText(getApplicationContext(), ""+tabListes, Toast.LENGTH_SHORT).show();
+
+
 
         //afficher les differents btn en fct du nombre de joueur
         debutJeu.setVisibility(View.INVISIBLE);
@@ -90,6 +95,7 @@ public class ActivityNomJoeurs extends AppCompatActivity {
                 //transmission des liste pour chaque joueurs
                 intent.putStringArrayListExtra("l1",a);
                 intent.putStringArrayListExtra("l2",b);
+                //intent.putExtra("tabListes", tabListes);
 
                 startActivity(intent);
             }

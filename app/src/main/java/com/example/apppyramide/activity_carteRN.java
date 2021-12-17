@@ -6,6 +6,7 @@ import androidx.fragment.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Parcelable;
 import android.widget.ListView;
 import android.widget.Toast;
 import java.util.ArrayList;
@@ -26,6 +27,7 @@ public class activity_carteRN extends AppCompatActivity {
         int val = getIntent().getIntExtra("count",0);
         ArrayList<String> a = getIntent().getStringArrayListExtra("l1");
         ArrayList<String> b = getIntent().getStringArrayListExtra("l2");
+        //Parcelable[] tabListes = getIntent().getParcelableArrayExtra("tabListes");
 
         //Toast.makeText(getApplicationContext(), ""+ s1, Toast.LENGTH_SHORT).show();
 
@@ -46,6 +48,8 @@ public class activity_carteRN extends AppCompatActivity {
                 bundleNom.putInt("count", val);
                 bundleNom.putStringArrayList("l1",a);
                 bundleNom.putStringArrayList("l2",b);
+                //bundleNom.putParcelableArrayList("tabListes",tabListes);
+
 
                 fragment_rn.setArguments(bundleNom);
                 fragmentTransaction.replace(fragment_containerRN, fragment_rn);

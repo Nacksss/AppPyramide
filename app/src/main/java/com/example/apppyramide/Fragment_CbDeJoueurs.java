@@ -25,7 +25,7 @@ public class Fragment_CbDeJoueurs extends Fragment {
     public int count;
     TextView valCount;
     Button ButtonOK, ButtonPlus, ButtonMoins;
-    ArrayList<String> liste_1, liste_2,liste_3,liste_4,liste_5,liste_6;
+    ArrayList<String> liste_1;
 
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -85,20 +85,20 @@ public class Fragment_CbDeJoueurs extends Fragment {
                     Intent in = new Intent(getActivity(), ActivityNomJoeurs.class);
                     in.putExtra("count",count);
 
+                    /*
                     //créer des listes pr chaques joueurs pour pouvoir ranger leurs cartes
-                    /*ArrayList<String> listeDeStrings= new ArrayList<String>();
-                    for(int  i = 0; i<count; i++){
-                         listeDeStrings.add(i new  ArrayList<String>());
-                    }*/
-                    //map.get("liste_1").add(1);
-                    //Toast.makeText(getContext(), ""+liste_1, Toast.LENGTH_SHORT).show();
+                    ArrayList[] tabListes= new ArrayList[3];
+                    for(int  i = 1; i<=count; i++){
+                        tabListes[i] = new ArrayList();
+                        //Toast.makeText(getContext(), ""+tabListes, Toast.LENGTH_SHORT).show();
+                    }
+                    */
+
 
                     liste_1 = new ArrayList<>();
                     in.putStringArrayListExtra("l1",liste_1);
+                    //in.putExtra("tabListes", tabListes);
 
-                    //in.putStringArrayListExtra("l1",liste_1);
-                    //in.putStringArrayListExtra("l1", L1);
-                    //in.putStringArrayListExtra("l2", L2);
                     startActivity(in);
                 }
             }
