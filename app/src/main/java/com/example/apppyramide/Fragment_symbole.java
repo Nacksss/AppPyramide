@@ -42,14 +42,15 @@ public class Fragment_symbole extends Fragment {
 
         nb = nb+1;
 
-        Editable TexteChoix = choixSymbole.getText();
+
         btnValidation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               /* if (!TexteChoix.equals("Pique") || !TexteChoix.equals("Trefle") ||
-                        !TexteChoix.equals("Carreau") || !TexteChoix.equals("Coeur")) {
-                    Toast.makeText(getContext(), "Il faut entrer un nom de symbole existant ! (Trèfles,Pique,Carreau,Coeur) ", Toast.LENGTH_SHORT).show();
-                } else {*/
+                String TexteChoix = choixSymbole.getText().toString();
+                //Toast.makeText(getContext(), ""+ TexteChoix, Toast.LENGTH_SHORT).show();
+                if (TexteChoix.equals("Pique") || TexteChoix.equals("Trefle") ||
+                        TexteChoix.equals("Carreau") || TexteChoix.equals("Coeur")) {
+
                     Fragment_resultatSymbole fragment_resultatSymbole = new Fragment_resultatSymbole();
 
                     Bundle bundlesymb = new Bundle();
@@ -59,10 +60,15 @@ public class Fragment_symbole extends Fragment {
                     bundlesymb.putInt("count", count);
                     bundlesymb.putString("Choix", String.valueOf(TexteChoix));
 
-                    Toast.makeText(getContext(), "" + String.valueOf(TexteChoix), Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getContext(), "" + String.valueOf(TexteChoix), Toast.LENGTH_SHORT).show();
                     fragment_resultatSymbole.setArguments(bundlesymb);
                     getFragmentManager().beginTransaction().replace(R.id.fragment_containerRN, fragment_resultatSymbole).commit();
-                //}
+
+                } else {
+
+                    Toast.makeText(getContext(), "Il faut entrer un nom de symbole existant ! (Trefle,Pique,Carreau,Coeur) ", Toast.LENGTH_SHORT).show();
+
+                }
             }
         });
 
