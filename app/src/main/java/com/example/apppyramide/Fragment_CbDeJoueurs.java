@@ -21,7 +21,7 @@ import java.util.Map;
 
 public class Fragment_CbDeJoueurs extends Fragment {
 
-    //variables
+    //Déclaration des variables
     public int count;
     TextView valCount;
     Button ButtonOK, ButtonPlus, ButtonMoins;
@@ -43,9 +43,11 @@ public class Fragment_CbDeJoueurs extends Fragment {
         ButtonPlus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //Si le nombre de joueur est déjà égale à 6, on ne peut plus rajouter de joueur
                 if(count == 6){
                     count = 6;
                 }
+                //Si non, on incrémente le nbre de joueur, et on modifie le texte du setText "valCount"
                 else{
                     count ++;
                     String nbDeJoueurs = "" + count;
@@ -81,24 +83,12 @@ public class Fragment_CbDeJoueurs extends Fragment {
                     Toast.makeText(getContext(), "Il ne peut pas y avoir 0 joueur", Toast.LENGTH_SHORT).show();
                 }
                 else {
-                    //pour ouvrir une activité et transmettre une val
+                    //pour ouvrir l'activité et transmettre le nombre de joueur
+                    //et la liste pour le joeur 1 (utilisation d'un Intent)
                     Intent in = new Intent(getActivity(), ActivityNomJoeurs.class);
                     in.putExtra("count",count);
-
-                    /*
-                    //créer des listes pr chaques joueurs pour pouvoir ranger leurs cartes
-                    ArrayList[] tabListes= new ArrayList[3];
-                    for(int  i = 1; i<=count; i++){
-                        tabListes[i] = new ArrayList();
-                        //Toast.makeText(getContext(), ""+tabListes, Toast.LENGTH_SHORT).show();
-                    }
-                    */
-
-
                     liste_1 = new ArrayList<>();
                     in.putStringArrayListExtra("l1",liste_1);
-                    //in.putExtra("tabListes", tabListes);
-
                     startActivity(in);
                 }
             }
@@ -106,5 +96,4 @@ public class Fragment_CbDeJoueurs extends Fragment {
 
         return view;
     }
-
 }

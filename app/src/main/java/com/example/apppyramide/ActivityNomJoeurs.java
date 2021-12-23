@@ -12,10 +12,11 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import java.util.ArrayList;
 
+//Activité qui donne la possibilité au joueurs de rentrer leur pseudo
 
 public class ActivityNomJoeurs extends AppCompatActivity {
 
-    //Variable
+    //Déclaration variable
     ListView list;
     Button btnAdd;
     Button debutJeu;
@@ -30,40 +31,39 @@ public class ActivityNomJoeurs extends AppCompatActivity {
         setContentView(R.layout.activity_nomjoueurs);
 
         //Initialisation des variables
-        btnAdd = (Button) findViewById(R.id.btnAdd);
-        debutJeu = (Button) findViewById(R.id.debutJeu);
-        list = (ListView) findViewById(R.id.list);
-        utilisateur = (EditText) findViewById(R.id.utilisateur);
+            btnAdd = (Button) findViewById(R.id.btnAdd);
+            debutJeu = (Button) findViewById(R.id.debutJeu);
+            list = (ListView) findViewById(R.id.list);
+            utilisateur = (EditText) findViewById(R.id.utilisateur);
+        //fin initialisation
 
-
+        //Initialisation de l'arrayList qui va nous servir à lister les noms des joueurs
         arrayList = new ArrayList<String>();
         adapter = new ArrayAdapter<String>(ActivityNomJoeurs.this,
                 android.R.layout.simple_expandable_list_item_1, arrayList);
         list.setAdapter(adapter);
-        //fin initialisation
 
-        //recoit la variable entiere count du Fragment_CbDeJoueurs
+
+        //recoit la variable entiere count du Fragment_CbDeJoueurs qui correspond au nombre de joueur
         int val = getIntent().getIntExtra("count",0);
+        //recoit la liste créée pour le joueur
         ArrayList<String> a = getIntent().getStringArrayListExtra("l1");
-        ArrayList<String> b = getIntent().getStringArrayListExtra("l2");
-        //Parcelable[] tabListes = getIntent().getParcelableArrayExtra("tabListes");
-        //Toast.makeText(getApplicationContext(), ""+tabListes, Toast.LENGTH_SHORT).show();
-
 
 
         //afficher les differents btn en fct du nombre de joueur
         debutJeu.setVisibility(View.INVISIBLE);
 
+
         //Fonction du click sur ajouter joueur
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //si l'utilisateur ne rentre pas de nom
                 if (utilisateur.getText().toString().equals("")) {
                     Toast.makeText(getApplicationContext(), "Il faut rentrer un nom de joueur !", Toast.LENGTH_SHORT).show();
-                }/* faire une condition pour qu il ne puisse pas rentrer un nom deja selectionne
-                else if (){
-
-                }*/ else {
+                }
+                //Si non
+                else{
                     //on recupere le nom entré par le joueur
                     String nom = utilisateur.getText().toString();
                     arrayList.add("Joueur " + (arrayList.size() + 1) + " : " + nom);
@@ -73,7 +73,6 @@ public class ActivityNomJoeurs extends AppCompatActivity {
                     //afficher les differents btn en fct du nombre de joueur
                     //on se place ici pour obtenir la taille de la liste incrémenté à chaque fois
                     if ((arrayList.size()) >= val ){
-                        //Toast.makeText(getApplicationContext(), ""+ arrayList.size(), Toast.LENGTH_SHORT).show();
                         btnAdd.setVisibility(View.INVISIBLE);
                         debutJeu.setVisibility(View.VISIBLE);
                     }
@@ -83,20 +82,16 @@ public class ActivityNomJoeurs extends AppCompatActivity {
 
 
         //Fct du btn lancer partie
-        //ouvrir une activité d'une activité
         debutJeu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //transmettre la liste de l'activité à un fragment
+                //Création d'un intent pour transmettre la liste de l'activité et le nombre de
+                // joueur à "activity_carteRN"
                 Intent intent = new Intent(ActivityNomJoeurs.this, activity_carteRN.class);
                 intent.putExtra("listNom", arrayList);
                 intent.putExtra("count", val);
-
                 //transmission des liste pour chaque joueurs
                 intent.putStringArrayListExtra("l1",a);
-                intent.putStringArrayListExtra("l2",b);
-                //intent.putExtra("tabListes", tabListes);
-
                 startActivity(intent);
             }
         });

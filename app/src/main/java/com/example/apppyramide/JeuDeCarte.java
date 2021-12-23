@@ -1,7 +1,6 @@
 package com.example.apppyramide;
 
 import java.util.HashMap;
-import java.util.Map;
 
 public class JeuDeCarte {
 
@@ -19,7 +18,6 @@ public class JeuDeCarte {
                 cle ++;
             }
         }
-
     }
 
     public Carte getCarte(Integer n) {
@@ -30,5 +28,4 @@ public class JeuDeCarte {
     public void removeCarte(Integer n) {
         Carte maCarte = monJeu.remove(n);
     }
-
 }

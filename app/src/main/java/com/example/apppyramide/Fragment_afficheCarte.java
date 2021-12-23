@@ -1,7 +1,6 @@
 package com.example.apppyramide;
 
 import android.os.Bundle;
-
 import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +14,7 @@ import java.util.Random;
 
 public class Fragment_afficheCarte extends Fragment {
 
+    //Déclaration des variables
     TextView CarteObtenue, nomJoueur;
     TextView resultat;
     Button JoueurSuivant, TourSuivant;
@@ -30,12 +30,14 @@ public class Fragment_afficheCarte extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_affiche_carte, container, false);
 
+        //Initialisation
         CarteObtenue = view.findViewById(R.id.carte_Tiré) ;
         resultat = view.findViewById(R.id.resultat) ;
         JoueurSuivant = view.findViewById(R.id.joueursuivant);
         TourSuivant = view.findViewById(R.id.Toursuivant);
         nomJoueur = view.findViewById(R.id.NomJoueur);
 
+        //Récupération des arguments important du bundle
         Bundle bundle = this.getArguments();
         int choixCouleur = bundle.getInt("choix");
         i = bundle.getInt("nb");
@@ -43,10 +45,12 @@ public class Fragment_afficheCarte extends Fragment {
         count = bundle.getInt("count");
         liste_1= bundle.getStringArrayList("l1");
 
-
+        //Pour afficher le nom du joueur jouant la manche
         nomJoueur.setText("" + s1.get(i-1));
 
-
+        //Gestion des boutons en fonction du nombre de joueur
+        //  Soit pour passer au tour suivant, soit pour refaire la première manche mais pour le
+        //   joueur suivant
         if( i == count){
             TourSuivant.setVisibility(View.VISIBLE);
             JoueurSuivant.setVisibility(View.INVISIBLE);
@@ -67,10 +71,10 @@ public class Fragment_afficheCarte extends Fragment {
         CarteObtenue.setText("" + jeu.getCarte(n).getValue() + " " + jeu.getCarte(n).getType());
         String valeurCarte1 = jeu.getCarte(n).getValue();
 
+        //ajout de la carte tirée à la liste du joueur correspindant
         liste_1.add("" + jeu.getCarte(n).getValue() + " " + jeu.getCarte(n).getType());
-        //Toast.makeText(getContext(), ""+liste_1, Toast.LENGTH_SHORT).show();
 
-        //on récupère la carte piochée
+        //on récupère le symbole de la carte piochée
         Carte symboleN = jeu.getCarte(n);
 
         //on vérifie si la carte est noire
@@ -82,10 +86,6 @@ public class Fragment_afficheCarte extends Fragment {
             CouleurCarte = 1;
         }
 
-        //ajouter la carte au tableau du joueur en question
-       /* String carte1 = jeu.getCarte(n).getValue() + " " + jeu.getCarte(n).getType();
-        a.add(carte1);*/
-
         //Comparaison de la couleur de la carte et du choix de joueur
         if( choixCouleur == CouleurCarte){
             resultat.setText("Bravo, tu donnes une gorgée au joueur de ton choix");
@@ -93,10 +93,10 @@ public class Fragment_afficheCarte extends Fragment {
             resultat.setText("Raté, tu bois une gorgée");
         }
 
-
         //retirer carte du paquet
         jeu.removeCarte(n);
 
+        //Action suite au clic sur le bouton JoueurSuivant
         JoueurSuivant.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -111,6 +111,7 @@ public class Fragment_afficheCarte extends Fragment {
             }
         });
 
+        //Action suite au clic sur le bouton TourSuivant
         TourSuivant.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

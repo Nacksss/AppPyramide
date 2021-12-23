@@ -11,11 +11,16 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 public class Fragment_Accueil extends Fragment {
+
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_accueil, container, false);
 
+        //initialisation du bouton nouvelle partie
         Button ButtonNouvPartie = (Button)view.findViewById(R.id.fragment_home_button);
+
+        //Action du clic sur le bouton
+        //ouverture du fragment combien de joueur
         ButtonNouvPartie.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -23,9 +28,8 @@ public class Fragment_Accueil extends Fragment {
                 fr.replace(R.id.fragment_container, new Fragment_CbDeJoueurs());
                 fr.commit();
         }
-    });
+        });
 
         return view;
-}
-
+    }
 }

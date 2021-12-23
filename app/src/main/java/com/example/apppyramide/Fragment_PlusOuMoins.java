@@ -1,19 +1,17 @@
 package com.example.apppyramide;
 
 import android.os.Bundle;
-
 import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-
 import java.util.ArrayList;
 
 public class Fragment_PlusOuMoins extends Fragment {
 
+    //Déclarations variables
     public TextView nom, textv, carte_précédente;
     public Button ButtonPlus, ButtonMoins;
     public int i, r, count, nb ; //nb= nbre joueur ayant joué cette manche
@@ -32,7 +30,7 @@ public class Fragment_PlusOuMoins extends Fragment {
         textv= view.findViewById(R.id.textv);
         carte_précédente= view.findViewById(R.id.carte_precedante);
 
-
+        //Récupère les arguments nécessaire du bundle
         Bundle bundleA = getArguments();
         s1 = bundleA.getStringArrayList("listNom");
         i = bundleA.getInt("num");
@@ -40,13 +38,13 @@ public class Fragment_PlusOuMoins extends Fragment {
         count = bundleA.getInt("count");
         valCarte1 = bundleA.getString("Val1");
 
-
         //affiche le nom du joueur qui a tiré la carte
         nom.setText(""+s1.get(i));
 
         //affiche la carte tiréé par le joueur au tour suivant
-        carte_précédente.setText("Votre précédente carte était : "+ liste_1.get(0)  );
+        carte_précédente.setText("Votre précédente carte était : "+ liste_1.get(0));
 
+        //incrémente nb pour passer au joueur suivant
         nb = nb+1;
 
         //au clik sur les btns
@@ -67,7 +65,6 @@ public class Fragment_PlusOuMoins extends Fragment {
                 getFragmentManager().beginTransaction().replace(R.id.fragment_containerRN, result).commit();
             }
         });
-
         ButtonMoins.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -83,10 +80,8 @@ public class Fragment_PlusOuMoins extends Fragment {
                 FragmentResultatPM result = new FragmentResultatPM();
                 result.setArguments(bundlePM1);
                 getFragmentManager().beginTransaction().replace(R.id.fragment_containerRN, result).commit();
-
             }
         });
-
 
         return view;
     }

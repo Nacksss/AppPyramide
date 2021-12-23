@@ -1,21 +1,18 @@
 package com.example.apppyramide;
 
 import android.os.Bundle;
-
 import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
-
 import java.util.ArrayList;
 import java.util.Random;
 
 public class Fragment_resultatSymbole extends Fragment {
 
+    //Déclaration variables
     Button fin, joueurSuivant;
     TextView premierecarte, deuxiemecarte, dernierecarte , resultatSymbole, nomjoueur;
     public ArrayList<String> s1,liste;
@@ -47,7 +44,6 @@ public class Fragment_resultatSymbole extends Fragment {
         //affiche le nom du joueur qui a tiré la carte
         nomjoueur.setText(""+s1.get(nb-1));
 
-
         //génère une nouvelle carte
         Random r = new Random ();
         int n = r.nextInt(52);
@@ -55,14 +51,13 @@ public class Fragment_resultatSymbole extends Fragment {
         //On instancie le jeu de cartes
         JeuDeCarte jeu = new JeuDeCarte();
 
+        //Ajout de la carte dans la liste des cartes du joueurs
         liste.add("" + jeu.getCarte(n).getValue() + " " + jeu.getCarte(n).getType());
-        //Toast.makeText(getContext(), ""+ liste, Toast.LENGTH_SHORT).show();
 
-
+        //Affichage des cartes du joueur
         premierecarte.setText("1ère carte tirée : \n " + liste.get(0));
         deuxiemecarte.setText("2ème carte tirée : \n" + liste.get(1));
         dernierecarte.setText("2ème carte tirée : \n" + liste.get(2));
-
 
 
         //affiche le résultat ds un txtView
@@ -72,7 +67,7 @@ public class Fragment_resultatSymbole extends Fragment {
             resultatSymbole.setText("Ratté, tu bois 3 gorgées");
        }
 
-
+        //gestion des boutons
         if( nb == count){
             fin.setVisibility(View.VISIBLE);
             joueurSuivant.setVisibility(View.INVISIBLE);
@@ -83,15 +78,13 @@ public class Fragment_resultatSymbole extends Fragment {
 
         //enlève la carte
         jeu.removeCarte(n);
-        //Toast.makeText(getContext(), ""+ jeu, Toast.LENGTH_SHORT).show();
 
-
+        //action du btn
        joueurSuivant.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Fragment_symbole fragment_symbole =new Fragment_symbole();
                 getFragmentManager().beginTransaction().replace(R.id.fragment_containerRN, fragment_symbole).commit();
-
             }
        });
 
@@ -104,6 +97,5 @@ public class Fragment_resultatSymbole extends Fragment {
        });
 
         return view;
-
     }
 }

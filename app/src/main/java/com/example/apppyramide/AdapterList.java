@@ -18,8 +18,7 @@ public class AdapterList extends BaseAdapter {
         this.inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         this.user = user;
     }
-
-
+    
     @Override
     public int getCount() {
         return user.length;

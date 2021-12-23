@@ -27,5 +27,4 @@ public class Carte {
     public String getValue() {
         return myValue;
     }
-
 }
